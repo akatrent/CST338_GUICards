@@ -123,6 +123,13 @@ public class Hand
       numCards = 0;
    }
 
+   /**
+    * Public Mutator Method
+    *
+    * This method sorts the array of cards
+    * based on the ranking values described in
+    * the Card class.
+    */
    public void sort()
    {
       Card.arraySort(myCards, numCards);

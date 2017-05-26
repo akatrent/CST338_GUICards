@@ -121,8 +121,7 @@ public class Deck
       if(topCard >= 0) //Checks that there are still cards in the deck
       {
          final Card pulledCard = new Card(inspectCard(topCard)); //stores a temp location of top card deep copy
-         cards[topCard] = null; //sets the index of the cards array to null
-         topCard--; //shifts pointer to the index previous of where the chosen card was
+         cards[topCard--] = null; //sets the index of the cards array to null and decrements the top card
          return pulledCard;
       }
       else
@@ -132,13 +131,86 @@ public class Deck
    }
 
    /**
+    * Public Mutator Method
+    *
+    * This method sorts the array of cards
+    * based on the ranking values described in
+    * the Card class.
+    */
+   public void sort()
+   {
+      Card.arraySort(cards, cards.length);
+   }
+
+   /**
     * Public Accessor Method
     *
     * @return the index of the top card in the cards array.
     */
    public int getTopCard()
    {
+      return topCard; // TODO this may not be correct?
+   }
+
+   /**
+    * Public Access Method
+    *
+    * @return the number of cards in the deck
+    */
+   public int getNumCards()
+   {
       return topCard;
+   }
+
+   /**
+    * Public Mutator Method
+    *
+    * This method will check if there is room in the deck
+    * for another card of the argument Card's type and value.
+    * if there is, this method will append it to the deck.
+    *
+    * @param card to be appended to the deck
+    * @return boolean representing the success of the addition.
+    */
+   public boolean addCard(final Card card)
+   {
+      for(int i = 0, found = 0; i < topCard; i++)
+      {
+         if(cards[i].equals(card)) // check if we have found the card
+         {
+            if((++found) > numPacks) // increment found and check if we have found too many
+            {
+               return false;
+            }
+         }
+      }
+      cards[topCard++] = card;
+      return true;
+   }
+
+   /**
+    * Public Mutator Method
+    *
+    * This method will check if the argument Card exists
+    * in the deck. If it does, it will remove it and swap
+    * it in place with the top card. The deck size is
+    * decremented by one.
+    *
+    * @param card to be removed from the deck
+    * @return boolean representing the success of the deletion
+    */
+   public boolean removeCard(final Card card)
+   {
+      for(int i = 0; i < topCard; i++)
+      {
+         if(cards[i].equals(card))
+         {
+            cards[i] = cards[topCard]; // swap removed card with top card
+            cards[topCard--] = null; // decrement top card
+            return true;
+         }
+      }
+      return false;
    }
 
    /**
