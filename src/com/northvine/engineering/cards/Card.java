@@ -44,8 +44,8 @@ public class Card
 
    //Private Data Members:
    private char value;
-   private boolean errorFlag = false;
    private Suit cardSuit = null;
+   private boolean errorFlag = false;
 
    /**
     * Public Default Constructor Initializes value to 'A' and Suit to spades
@@ -105,8 +105,8 @@ public class Card
     */
    public boolean equals(final Card compareCard)
    {
-      return compareCard.getSuit() == cardSuit && compareCard.getValue() == value
-              && compareCard.getErrorFlag() == errorFlag;
+      return compareCard.cardSuit == cardSuit && compareCard.value == value
+              && compareCard.errorFlag == errorFlag;
    }
 
    /**
@@ -191,26 +191,15 @@ public class Card
       }
    }
 
+   /*
+      Public Static Helper Method
+
+      This method simply returns the card's value based on the value ranks
+    */
    private static int cardValue(final Card card)
    {
       return Card.valueRanks.length - new String(valueRanks).indexOf(card.getValue());
    }
-
-   /*
-   procedure bubbleSort( A : list of sortable items )
-    n = length(A)
-    repeat
-        swapped = false
-        for i = 1 to n-1 inclusive do
-            if A[i-1] > A[i] then
-                swap(A[i-1], A[i])
-                swapped = true
-            end if
-        end for
-        n = n - 1
-    until not swapped
-end procedure
-    */
 
    /**
     * Private helper method to determine validity of checkValue argument. Suit
