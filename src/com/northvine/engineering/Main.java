@@ -11,10 +11,10 @@ import java.awt.*;
  * @Date May 24th, 2017
  * @Version 1.0.0
  */
-
-
 public class Main
 {
+   // This private constant points to the directory where all the card images are stored
+   private static final String IMAGES_FOLDER = String.format("%s%s", System.getProperty("user.dir"), "/src/images/");
    static final int NUM_CARD_IMAGES = 57; // 52 basic cards & 4 jokers & back of card image
    static Icon[] icon = new ImageIcon[NUM_CARD_IMAGES];
    private static final String[] CARD_SUITES =
@@ -33,15 +33,12 @@ public class Main
       String filetype = ".gif";
       for(String suite : CARD_SUITES)
       {
-
          for(String value : CARD_VALUES)
          {
-            //icon[i] = new ImageIcon(value + suite + filetype);
-            icon[i] = new ImageIcon("2C.gif");
-            i++;
+            icon[i++] = new ImageIcon(IMAGES_FOLDER + value + suite + filetype);
          }
       }
-      icon[i] = new ImageIcon("BK" + filetype); //sets card back image
+      icon[i] = new ImageIcon(IMAGES_FOLDER + "BK" + filetype); //sets card back image
    }
 
 
