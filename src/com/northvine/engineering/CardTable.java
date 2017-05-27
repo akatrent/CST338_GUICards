@@ -129,6 +129,7 @@ public class CardTable extends JFrame
       setupPanel(pnlComputerHand = new JPanel(), "Computer Hand", 0, 0);
       add(pnlComputerHand, BorderLayout.NORTH);
       setupPanel(pnlPlayArea = new JPanel(), "Playing Area", 0, pnlComputerHand.getHeight());
+      pnlPlayArea.setLayout(new GridLayout(1, 2));
       add(pnlPlayArea, BorderLayout.CENTER);
       setupPanel(pnlHumanHand = new JPanel(), "Your Hand", 0, pnlComputerHand.getHeight() + pnlPlayArea.getHeight());
       add(pnlHumanHand, BorderLayout.SOUTH);
