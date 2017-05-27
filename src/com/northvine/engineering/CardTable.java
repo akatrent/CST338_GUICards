@@ -112,7 +112,7 @@ public class CardTable extends JFrame
     */
    private void initFrame(final String title)
    {
-      final FlowLayout layout = new FlowLayout(FlowLayout.CENTER);
+      final BorderLayout layout = new BorderLayout();
       setLayout(layout);
       setTitle(title);
       setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -127,8 +127,11 @@ public class CardTable extends JFrame
    private void initPanels()
    {
       setupPanel(pnlComputerHand = new JPanel(), "Computer Hand", 0, 0);
+      add(pnlComputerHand, BorderLayout.NORTH);
       setupPanel(pnlPlayArea = new JPanel(), "Playing Area", 0, pnlComputerHand.getHeight());
+      add(pnlPlayArea, BorderLayout.CENTER);
       setupPanel(pnlHumanHand = new JPanel(), "Your Hand", 0, pnlComputerHand.getHeight() + pnlPlayArea.getHeight());
+      add(pnlHumanHand, BorderLayout.SOUTH);
    }
 
    /*
@@ -155,6 +158,5 @@ public class CardTable extends JFrame
       panel.setLocation(x, y);
       panel.setEnabled(true);
       panel.setVisible(true);
-      add(panel);
    }
 }
