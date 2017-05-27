@@ -14,7 +14,7 @@ This project phase is merely establishing the baseline View of the MVC framework
 
 ## Phase 2
 
-// coming soon
+Phase two involves connecting the View and Model architectures together where a basic driver program which mocks the Controller. The assignment has a specified UI design depicted in an image on the project [documentation](https://ilearn.csumb.edu/mod/assign/view.php?id=412858) page.
 
 ## Phase 3
 
