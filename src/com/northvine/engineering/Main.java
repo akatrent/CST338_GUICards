@@ -54,10 +54,14 @@ public class Main
       // and two random cards in the play region (simulating a computer/hum ply)
       JLabel computersCard = new JLabel("Computer", JLabel.CENTER);
       computersCard.setIcon(GUICard.getIcon(generateRandomCard()));
+      computersCard.setVerticalTextPosition(JLabel.BOTTOM);
+      computersCard.setHorizontalTextPosition(JLabel.CENTER);
 
       JLabel playersCard = new JLabel("Computer", JLabel.CENTER);
       playersCard.setIcon(GUICard.getIcon(generateRandomCard()));
-
+      playersCard.setVerticalTextPosition(JLabel.BOTTOM);
+      playersCard.setHorizontalTextPosition(JLabel.CENTER);
+      
       myCardTable.pnlPlayArea.add(computersCard);
       myCardTable.pnlPlayArea.add(playersCard);
 
