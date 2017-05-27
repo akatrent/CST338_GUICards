@@ -5,7 +5,7 @@ package com.northvine.engineering.cards;
  * individual Hand that may be contained within a Deck.
  *
  * @Author Gene Evans, Kyle Luoma, Trammel May, Trent Dehart
- * @Date May 10th, 2017
+ * @Date May 26th, 2017
  * @Version 1.0.0
  */
 public class Hand

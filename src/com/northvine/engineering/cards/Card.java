@@ -5,7 +5,7 @@ package com.northvine.engineering.cards;
  * individual card that may be contained within a Hand or a Deck.
  *
  * @Author Gene Evans, Kyle Luoma, Trammel May, Trent Dehart
- * @Date May 10th, 2017
+ * @Date May 26th, 2017
  * @Version 1.0.0
  */
 public class Card
@@ -25,18 +25,18 @@ public class Card
          this.charValue = charValue;
       }
 
-      public static Suit valueOf(int integer)
+      public static char valueOf(int integer)
       {
          for(Suit suit : Suit.values())
          {
             if(integer == suit.intValue)
             {
-               return suit;
+               return suit.charValue;
             }
          }
-         return null;
+         throw new IllegalArgumentException(String.format("%s is not a valid argument"));
       }
-   };
+   }
 
    //Public Static Data Members:
    public static final char[] LEGAL_VALUES = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'X'};

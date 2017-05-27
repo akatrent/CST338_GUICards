@@ -5,17 +5,17 @@ package com.northvine.engineering.cards;
  * Deck or Decks used in a game of cards.
  *
  * @Author Gene Evans, Kyle Luoma, Trammel May, Trent Dehart
- * @Date May 15th, 2017
+ * @Date May 26th, 2017
  * @Version 1.0.0
  */
 public class Deck
 {
    //Public Data Members:
-   public final int MAX_CARDS = 312;
+   public final int MAX_CARDS = 320;
    public Card[] cards;
 
    //Private Data Members:
-   private static Card[] masterPack = new Card[52];
+   private static Card[] masterPack = new Card[56];
    private int topCard;
    private int numPacks;
 
@@ -60,9 +60,9 @@ public class Deck
     */
    public void init(int numPacks)
    {
-      if(numPacks > 0 && numPacks < (MAX_CARDS / 52))
+      if(numPacks > 0 && numPacks < (MAX_CARDS / 56))
       {
-         cards = new Card[numPacks * 52];
+         cards = new Card[numPacks * 56];
          int packCount = 0;
          for(int i = 0; i < numPacks; i++)
          {

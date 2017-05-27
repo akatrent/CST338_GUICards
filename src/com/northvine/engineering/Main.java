@@ -1,15 +1,15 @@
 package com.northvine.engineering;
 
+import com.northvine.engineering.cards.Card;
+import com.northvine.engineering.cards.Deck;
+import com.northvine.engineering.cards.GUICard;
 import javax.swing.*;
-import java.awt.*;
 
 /**
- *  This class is the main class for Phase1 of the assignment
- *  All this class does is loads up the cards images and displays them
- *  as JLabels
+ *  This class is the main class for Phase 2 of the assignment
  *
  * @Author Gene Evans, Kyle Luoma, Trammel May, Trent Dehart
- * @Date May 24th, 2017
+ * @Date May 26th, 2017
  * @Version 1.0.0
  */
 public class Main
@@ -36,15 +36,39 @@ public class Main
       myCardTable.setVisible(true);
 
       // CREATE LABELS ----------------------------------------------------
-      // code goes here ...
+      final Deck deck = new Deck();
+
+      for(int i = 0; i < NUM_CARDS_PER_HAND; i++)
+      {
+         humanLabels[i] = new JLabel(GUICard.getIcon(deck.dealCard()));
+         computerLabels[i] = new JLabel(GUICard.getBackCardIcon());
+      }
 
       // ADD LABELS TO PANELS -----------------------------------------
-      //code goes here ...
+      for(int i = 0; i < NUM_CARDS_PER_HAND; i++)
+      {
+         myCardTable.pnlHumanHand.add(humanLabels[i]);
+         myCardTable.pnlComputerHand.add(computerLabels[i]);
+      }
 
       // and two random cards in the play region (simulating a computer/hum ply)
-      //code goes here ...
+      JLabel computersCard = new JLabel("Computer", JLabel.CENTER);
+      computersCard.setIcon(GUICard.getIcon(generateRandomCard()));
+
+      JLabel playersCard = new JLabel("Computer", JLabel.CENTER);
+      playersCard.setIcon(GUICard.getIcon(generateRandomCard()));
+
+      myCardTable.pnlPlayArea.add(computersCard);
+      myCardTable.pnlPlayArea.add(playersCard);
 
       // show everything to the user
       myCardTable.setVisible(true);
+   }
+
+   private static Card generateRandomCard()
+   {
+      final Deck deck = new Deck();
+      deck.shuffle();
+      return deck.dealCard();
    }
 }
