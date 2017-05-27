@@ -2,7 +2,9 @@ package com.northvine.engineering;
 
 import com.northvine.engineering.cards.Card;
 import com.northvine.engineering.cards.Deck;
-import com.northvine.engineering.cards.GUICard;
+import com.northvine.engineering.gui.GUICard;
+import com.northvine.engineering.gui.CardTable;
+
 import javax.swing.*;
 
 /**
